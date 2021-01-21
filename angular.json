@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "CovidDataDashboard"
+  "defaultProject": "CovidDataDashboard",
+  "cli": {
+    "analytics": "0ca3a3b0-dbfb-4ba1-ad6f-78f82af35856"
+  }
 }

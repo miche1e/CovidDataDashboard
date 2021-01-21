@@ -5,16 +5,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './main/dashboard/dashboard.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    BrowserModule,
+    Dashboard_Component
+    NgxChartsModule
     FormsModule,
-    NgxChartsModule,
     BrowserAnimationsModule
   ],
   providers: [],
