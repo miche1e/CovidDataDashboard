@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   timeline: boolean = true;
 
   colorScheme = {
-    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+    domain: ['#3a24fa', '#2ef801', '#ffe602', '#f800b8', '#a8385d', '#aae3f5']
   };
 
   constructor() {
