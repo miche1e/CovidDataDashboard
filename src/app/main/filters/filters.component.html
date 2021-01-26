@@ -1,0 +1,30 @@
+<div>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Country</mat-label>
+      <mat-select [(ngModel)]="selectedCountry" name="food">
+        <mat-option *ngFor="let country of countries" [value]="country.alpha2">
+          {{country.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Data to show</mat-label>
+      <mat-select [(value)]="selectedData">
+        <mat-option value="total_cases">Cases</mat-option>
+        <mat-option value="total_deaths">Deaths</mat-option>
+        <mat-option value="total_recovered">Recovered</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" [formControl]="datePicked">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-stroked-button (click)="composeDate(); notificationToParent([selectedCountry, selectedData, selectedDate])">Filter</button>
+  </form>
+</div>

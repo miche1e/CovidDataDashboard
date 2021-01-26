@@ -8,6 +8,8 @@ import { multi } from './data';
 })
 export class DashboardComponent implements OnInit {
 
+  filters: string[];
+
   multi: any[];
 
   // options
@@ -45,4 +47,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getOutputValue(selected: string[]): void{
+    if (selected){
+      this.filters = selected;
+    }
+  }
 }
