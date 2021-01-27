@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { multi } from './data';
+import {ApiService} from '../../api.service';
+import {Day} from '../../models/day';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +13,25 @@ export class DashboardComponent implements OnInit {
   filters: string[];
 
   multi: any[];
+
+  casesArray: any[] = [];
+  totalCases = {
+    name: 'Total Cases',
+    series: this.casesArray
+  };
+
+  deathsArray: any[] = [];
+  totalDeaths = {
+    name: 'Total Deaths',
+    series: this.deathsArray
+  };
+
+  recoveredArray: any[] = [];
+  totalRecovered = {
+    name: 'Total Recovered',
+    series: this.recoveredArray
+  };
+
 
   // options
   legend: boolean = true;
@@ -25,12 +46,12 @@ export class DashboardComponent implements OnInit {
   timeline: boolean = true;
 
   colorScheme = {
-    domain: ['#3a24fa', '#2ef801', '#ffe602', '#f800b8', '#a8385d', '#aae3f5']
+    domain: ['#fabd24', '#f80101', '#39ff02']
   };
 
-  constructor() {
-    Object.assign(this, { multi });
-  }
+  data: any[] = [];
+
+  constructor(private apiService: ApiService) { }
 
   onSelect(data): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
@@ -45,11 +66,41 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.apiService.getTimeline().subscribe((res) => {
+      this.transformJson(res);
+      console.log("-------res---------");
+      console.log(res);
+    });
+    console.log("-------ciaoooneeeee---------");
+    console.log(this.data);
   }
 
   getOutputValue(selected: string[]): void{
     if (selected){
       this.filters = selected;
     }
+  }
+
+  private transformJson(day: Day[]): void {
+    for (const item of day) {
+      this.casesArray.push({
+        name: item.last_update,
+        value: item.total_cases
+      });
+      this.deathsArray.push({
+        name: item.last_update,
+        value: item.total_deaths
+      });
+      this.recoveredArray.push({
+        name: item.last_update,
+        value: item.total_recovered
+      });
+    }
+    this.casesArray.reverse();
+    this.deathsArray.reverse();
+    this.recoveredArray.reverse();
+    this.data = [this.totalCases, this.totalDeaths, this.totalRecovered];
+    console.log('--------transform json--------');
+    console.log(this.data);
   }
 }

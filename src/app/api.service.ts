@@ -43,9 +43,9 @@ export class ApiService {
   }
 
   // Returns total cases timeline.
-  getTimeline(): Observable<Day>{
+  getTimeline(): Observable<Day[]>{
     this.log('Fetched Timeline.');
-    return this.httpClient.get<Day>(this.url + '/timeline');
+    return this.httpClient.get<Day[]>(this.url + '/timeline');
   }
 
   // Returns timeline for a specific country.

@@ -27,7 +27,6 @@ export class FiltersComponent implements OnInit {
 
   ngOnInit(): void {
     this.countryService.getCountries().subscribe(res => this.countries = res);
-    console.log(this.selectedDate);
   }
 
   composeDate(): void{
