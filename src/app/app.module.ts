@@ -18,32 +18,42 @@ import { DashboardComponent } from './main/dashboard/dashboard.component';
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { StatusDataComponent } from './status-data/status-data.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     DashboardComponent,
+    StatusDataComponent,
   ],
 
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    LayoutModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    AppRoutingModule,
-    BrowserModule,
-    NgxChartsModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        LayoutModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        AppRoutingModule,
+        BrowserModule,
+        NgxChartsModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule
+    ],
 
   providers: [],
   bootstrap: [AppComponent]
