@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../../api.service';
-import {Day} from '../../models/day';
+import { ApiService } from '../../api.service';
+import { Day } from '../../models/day';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-nations',
+  templateUrl: './nations.component.html',
+  styleUrls: ['./nations.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class NationsComponent implements OnInit {
+
+  filters: string[];
 
   multi: any[];
 
@@ -72,6 +74,12 @@ export class DashboardComponent implements OnInit {
     console.log(this.data);
   }
 
+  getOutputValue(selected: string[]): void{
+    if (selected){
+      this.filters = selected;
+    }
+  }
+
   private transformJson(day: Day[]): void {
     for (const item of day) {
       this.casesArray.push({
@@ -94,4 +102,5 @@ export class DashboardComponent implements OnInit {
     console.log('--------transform json--------');
     console.log(this.data);
   }
+
 }

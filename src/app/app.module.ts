@@ -24,13 +24,15 @@ import { FiltersComponent } from './main/filters/filters.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { NationsComponent } from './main/nations/nations.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     DashboardComponent,
-    FiltersComponent
+    FiltersComponent,
+    NationsComponent
   ],
 
   imports: [
