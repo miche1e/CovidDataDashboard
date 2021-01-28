@@ -20,6 +20,7 @@ import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StatusDataComponent } from './status-data/status-data.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -50,6 +51,7 @@ import { MatSortModule } from '@angular/material/sort';
         BrowserAnimationsModule,
         FlexLayoutModule,
         MatFormFieldModule,
+        MatInputModule,
         MatTableModule,
         MatPaginatorModule,
         MatSortModule

@@ -3,7 +3,7 @@ import {ApiService} from '../api.service';
 import {Status} from '../models/status';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator} from '@angular/material/paginator';
-import {CountryService} from '../country.service';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-status-data',
@@ -18,11 +18,13 @@ export class StatusDataComponent implements OnInit {
 
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private apiService: ApiService, private countryService: CountryService) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
     this.getAllReports();
   }
 
@@ -30,6 +32,10 @@ export class StatusDataComponent implements OnInit {
   getAllReports(): void{
     const resp = this.apiService.getStatus();
     resp.subscribe(status => this.dataSource.data = status );
+  }
+
+  applyFilter(filterValue: string): void {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }
