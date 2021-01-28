@@ -25,6 +25,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { NationsComponent } from './main/nations/nations.component';
+import { FooterComponent } from './main/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NationsComponent } from './main/nations/nations.component';
     NavBarComponent,
     DashboardComponent,
     FiltersComponent,
-    NationsComponent
+    NationsComponent,
+    FooterComponent
   ],
 
   imports: [

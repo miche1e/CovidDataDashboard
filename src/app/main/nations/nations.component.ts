@@ -9,6 +9,8 @@ import { Day } from '../../models/day';
 })
 export class NationsComponent implements OnInit {
 
+  view = [1200, 430];
+
   filters: string[];
 
   multi: any[];
@@ -101,6 +103,10 @@ export class NationsComponent implements OnInit {
     this.data = [this.totalCases, this.totalDeaths, this.totalRecovered];
     console.log('--------transform json--------');
     console.log(this.data);
+  }
+
+  onResize(event): void {
+    this.view = [event.target.innerWidth / 1.35, 400];
   }
 
 }
