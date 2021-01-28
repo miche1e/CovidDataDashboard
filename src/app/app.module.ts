@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +26,9 @@ import { MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { FiltersComponent } from './main/filters/filters.component';
+import {MatNativeDateModule} from '@angular/material/core';
+import { NationsComponent } from './main/nations/nations.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +36,8 @@ import { MatSortModule } from '@angular/material/sort';
     NavBarComponent,
     DashboardComponent,
     StatusDataComponent,
+    FiltersComponent,
+    NationsComponent
   ],
 
     imports: [
@@ -43,12 +50,9 @@ import { MatSortModule } from '@angular/material/sort';
         MatIconModule,
         MatListModule,
         AppRoutingModule,
-        BrowserModule,
         NgxChartsModule,
         FormsModule,
-        BrowserAnimationsModule,
         HttpClientModule,
-        BrowserAnimationsModule,
         FlexLayoutModule,
         MatFormFieldModule,
         MatInputModule,

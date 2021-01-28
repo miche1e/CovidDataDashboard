@@ -8,7 +8,7 @@ import {LogService} from './log.service';
   providedIn: 'root'
 })
 export class CountryService {
-  private url = 'https://covid19-api.org/api/status';
+  private url = 'https://covid19-api.org/api';
 
   constructor(private httpClient: HttpClient, private logService: LogService) { }
 
@@ -24,7 +24,7 @@ export class CountryService {
 
   // Returns specific country.
   getCountry(name: string): Observable<Country>{
-    this.log('Fetched Country by Name.');
+    this.log(`Fetched Country by Name: ${name}`);
     return this.httpClient.get<Country>(this.url + '/countries/' + name);
   }
 }

@@ -10,7 +10,7 @@ import {LogService} from './log.service';
   providedIn: 'root'
 })
 export class ApiService {
-  private url = 'https://covid19-api.org/api/status';
+  private url = 'https://covid19-api.org/api';
 
   constructor(private httpClient: HttpClient, private logService: LogService) { }
 
@@ -21,31 +21,31 @@ export class ApiService {
   // Returns latest state for all available countries.
   getStatus(): Observable<Status[]>{
     this.log('Fetched Status.');
-    return this.httpClient.get<Status[]>(this.url);
+    return this.httpClient.get<Status[]>(this.url + '/status');
   }
 
   // Returns latest state for a specific country.
   getStatusByCountry(name: string): Observable<Status>{
     this.log('Fetched Status by Country.');
-    return this.httpClient.get<Status>(this.url + '/' + name);
+    return this.httpClient.get<Status>(this.url + '/status/' + name);
   }
 
   // Returns countries state for a specific date.
   getStatusByDate(date: string): Observable<Status[]>{
     this.log('Fetched Status by Date.');
-    return this.httpClient.get<Status[]>(this.url + '?date=' + date);
+    return this.httpClient.get<Status[]>(this.url + '/status?date=' + date);
   }
 
   // Returns state for a specific country and date.
   getStatusByCountryAndDate(name: string, date: string): Observable<Status>{
     this.log('Fetched Status by Country and Date.');
-    return this.httpClient.get<Status>(this.url + '/' + name + '?date=' + date);
+    return this.httpClient.get<Status>(this.url + '/status/' + name + '?date=' + date);
   }
 
   // Returns total cases timeline.
-  getTimeline(): Observable<Day>{
+  getTimeline(): Observable<Day[]>{
     this.log('Fetched Timeline.');
-    return this.httpClient.get<Day>(this.url + '/timeline');
+    return this.httpClient.get<Day[]>(this.url + '/timeline');
   }
 
   // Returns timeline for a specific country.
