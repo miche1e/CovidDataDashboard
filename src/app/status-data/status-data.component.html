@@ -1,22 +1,28 @@
 <div class="mat-elevation-z8" >
 <mat-form-field>
   <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Ex. Italy" #input>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Ex. Italy  or  IT" #input>
 </mat-form-field>
 </div>
 <div class="mat-elevation-z8">
 <table mat-table [dataSource]="dataSource" matSort>
 
+  <!-- ALPHA2 Column -->
+  <ng-container matColumnDef="alpha2">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> ALPHA 2 </th>
+    <td mat-cell *matCellDef="let status"> {{status.country}} </td>
+  </ng-container>
+
   <!-- COUNTRY Column -->
   <ng-container matColumnDef="country">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> COUNTRY </th>
-    <td mat-cell *matCellDef="let status"> {{status.country}} </td>
+    <td mat-cell *matCellDef="let status">{{getCountryName(status.country)}}</td>
   </ng-container>
 
   <!-- LAST UPDATE Column -->
   <ng-container matColumnDef="last_update">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> LAST UPDATE </th>
-    <td mat-cell *matCellDef="let status"> {{status.last_update}} </td>
+    <td mat-cell *matCellDef="let status"> {{composeDate(status.last_update)}} </td>
   </ng-container>
 
   <!-- CASES Column -->
