@@ -20,10 +20,14 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { StatusDataComponent } from './status-data/status-data.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { FiltersComponent } from './main/filters/filters.component';
 import {MatNativeDateModule} from '@angular/material/core';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { NationsComponent } from './main/nations/nations.component';
 
 @NgModule({
@@ -31,34 +35,31 @@ import { NationsComponent } from './main/nations/nations.component';
     AppComponent,
     NavBarComponent,
     DashboardComponent,
+    StatusDataComponent,
     FiltersComponent,
     NationsComponent
   ],
 
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    LayoutModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    AppRoutingModule,
-    BrowserModule,
-    NgxChartsModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    ReactiveFormsModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatInputModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        LayoutModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        AppRoutingModule,
+        NgxChartsModule,
+        FormsModule,
+        HttpClientModule,
+        FlexLayoutModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule
+    ],
 
   providers: [],
   bootstrap: [AppComponent]
