@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
   yAxis = true;
   showYAxisLabel = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Year';
+  xAxisLabel = 'Date';
   yAxisLabel = 'Population';
   timeline = true;
 
@@ -77,15 +77,15 @@ export class DashboardComponent implements OnInit {
   private transformJson(day: Day[]): void {
     for (const item of day) {
       this.casesArray.push({
-        name: item.last_update,
+        name: item.last_update.slice(0, 10),
         value: item.total_cases
       });
       this.deathsArray.push({
-        name: item.last_update,
+        name: item.last_update.slice(0, 10),
         value: item.total_deaths
       });
       this.recoveredArray.push({
-        name: item.last_update,
+        name: item.last_update.slice(0, 10),
         value: item.total_recovered
       });
     }
