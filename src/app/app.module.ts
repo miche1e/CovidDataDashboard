@@ -29,15 +29,17 @@ import { MatSortModule } from '@angular/material/sort';
 import { FiltersComponent } from './main/filters/filters.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import { NationsComponent } from './main/nations/nations.component';
+import { FooterComponent } from './main/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     DashboardComponent,
-    StatusDataComponent,
     FiltersComponent,
-    NationsComponent
+    NationsComponent,
+    FooterComponent,
+    StatusDataComponent
   ],
 
     imports: [
@@ -58,7 +60,11 @@ import { NationsComponent } from './main/nations/nations.component';
         MatInputModule,
         MatTableModule,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ReactiveFormsModule
     ],
 
   providers: [],

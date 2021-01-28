@@ -9,6 +9,8 @@ import {Day} from '../../models/day';
 })
 export class DashboardComponent implements OnInit {
 
+  view = [1200, 500];
+
   multi: any[];
 
   casesArray: any[] = [];
@@ -93,5 +95,9 @@ export class DashboardComponent implements OnInit {
     this.data = [this.totalCases, this.totalDeaths, this.totalRecovered];
     console.log('--------transform json--------');
     console.log(this.data);
+  }
+
+  onResize(event): void {
+    this.view = [event.target.innerWidth / 1.35, 400];
   }
 }
