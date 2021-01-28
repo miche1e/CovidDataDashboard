@@ -36,10 +36,10 @@ import { FooterComponent } from './main/footer/footer.component';
     AppComponent,
     NavBarComponent,
     DashboardComponent,
-    StatusDataComponent,
     FiltersComponent,
     NationsComponent,
-    FooterComponent
+    FooterComponent,
+    StatusDataComponent
   ],
 
     imports: [
@@ -60,7 +60,11 @@ import { FooterComponent } from './main/footer/footer.component';
         MatInputModule,
         MatTableModule,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ReactiveFormsModule
     ],
 
   providers: [],

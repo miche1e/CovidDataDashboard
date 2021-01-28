@@ -7,7 +7,7 @@ import { NationsComponent } from './main/nations/nations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent  },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'nations', component: NationsComponent},
   { path: 'status', component: StatusDataComponent },
 ];
