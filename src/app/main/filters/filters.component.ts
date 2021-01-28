@@ -17,6 +17,7 @@ export class FiltersComponent implements OnInit {
   selectedDate;
   selectedData = 'total_cases';
   selectedCountry: string;
+  toppings = new FormControl(['IT']);
   @Output() outputParent = new EventEmitter<string[]>();
 
   notificationToParent(selected: string[]): void{
