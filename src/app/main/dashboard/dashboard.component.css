@@ -1,0 +1,11 @@
+::ng-deep .legend-title-text {
+  color: white!important;
+}
+
+::ng-deep .legend-label-text {
+  color: white!important;
+}
+
+::ng-deep .legend-label-text:hover {
+  color: #868686 !important;
+}
