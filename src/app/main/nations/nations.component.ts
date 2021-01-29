@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../../api.service';
 import {Status} from '../../models/status';
+import {forkJoin, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-nations',
@@ -79,24 +80,13 @@ export class NationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const supportArray: any[] = [];
-    for (const name of this.filters[1]) {
-      this.apiService.getTimelineByCountry(name).subscribe((res) => {
-        supportArray.push({
-          name,
-          series: this.transformJson(res)
-        });
-        supportArray.reverse();
-        this.data = supportArray;
-      });
-    }
-    console.log('--------for oninit--------');
-    console.log(supportArray);
+    this.loadData();
   }
 
   getOutputValue(selected: string[]): void {
-    if (selected) {
-      this.filters = selected;
+    if (selected[1]) {
+      this.filters = [...selected[1]];
+      this.loadData();
     }
   }
 
@@ -140,4 +130,27 @@ export class NationsComponent implements OnInit {
     this.view = [event.target.innerWidth / 1.35, 400];
   }
 
+  loadData() {
+    const observableList: Observable<any>[] = [];
+
+    if(this.filters[1]){
+      this.data = [];
+      const fil = !this.filters[0] ? this.filters.pop() : this.filters;
+      for (const name of fil) {
+        observableList.push(this.apiService.getTimelineByCountry(name));
+      }
+      observableList.forEach(item => item.subscribe((res) => {
+        const supportArray: any[] = [];
+        for (const val of res) {
+          supportArray.push({
+            name: val.last_update.slice(0, 10),
+            value: val.cases
+          });
+        }
+        this.data.push({name: res[0].country, series: supportArray});
+        this.data = [...this.data];
+      }));
+    }
+  }
 }
+

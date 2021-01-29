@@ -21,6 +21,7 @@ export class FiltersComponent implements OnInit {
   @Output() outputParent = new EventEmitter<string[]>();
 
   notificationToParent(selected: string[]): void{
+    console.log('ok');
     this.outputParent.emit(selected);
   }
 

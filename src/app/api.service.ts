@@ -54,6 +54,15 @@ export class ApiService {
     return this.httpClient.get<Status[]>(this.url + '/timeline/' + name);
   }
 
+  getTimelineByCountries(names: string[]): any[]{
+    const timelines: any[] = [];
+    for(const name of names){
+      this.log('Fetched Timeline by Country: ' + name);
+      timelines.push(this.httpClient.get<Status[]>(this.url + '/timeline/' + name));
+    }
+    return timelines;
+  }
+
   // Returns two weeks prediction for a specific country.
   getPrediction(name: string): Observable<Prediction>{
     this.log('Fetched Prediction.');
